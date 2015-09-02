@@ -1,0 +1,22 @@
+{
+    "app": {
+        "name": "Blogger",
+        "version": "0.0.1",
+        "view": {
+            "engine": "jade",
+            "pretty": false
+        }
+    },
+        
+    "db": {
+        "default": {
+            "driver": "mongodb://localhost/blog"
+        }
+    },
+        
+    "server": {
+        "http_addr": "localhost",
+        "http_port": 3000, 
+        "scheme": "https"
+    }
+}
