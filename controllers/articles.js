@@ -4,15 +4,12 @@
 exports.findOne = function (req, res) {
     var id = req.params.id;
 
-    models.Article.findOne({
-        _id: id
-    }, function (err, article) {
-        /*        if (!err) {
-                    res.render('page', {message: "Introuvable"})
-                }*/
-        /*        res.json(article);*/
+    models.Article.findOne({_id: id}, function (err, article) {
+        console.log(article);
+        if (!err) {
+            res.render('admin/article/details', {article: article});
+        }
     });
-    res.render('admin/article/details');
 };
 
 // Récupérer tous les articles
@@ -49,7 +46,7 @@ exports.add = function (req, res) {
             }
         });
     } else {
-        res.render('admin/article/form');
+        res.render('admin/article/form', {form: articleForm});
     }
 };
 
@@ -58,7 +55,7 @@ exports.update = function (req, res) {
     var options = {_id: req.params.id};
 
     if (req.method === 'POST') {
-        console.log(req.body);
+        req.body.published = req.body.published ? true : false;
         models.Article.update(options, req.body, function (err) {
             res.redirect('/admin/blog');
         });

@@ -16,6 +16,6 @@ block content
           | #{form.content}
       .checkbox
         label
-          input(type="checkbox", name="published")
+          input(type="checkbox", name="published", checked=(form.published ? "checked" : undefined))
           | Publier
       input.btn.btn-info(type="submit")

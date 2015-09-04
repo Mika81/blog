@@ -1,4 +1,18 @@
 extends ../layout
 
 block content
-  h1 Detail de l'article ...
+    h2 Detail de l'article ...
+    .panel.panel-default
+        .panel-heading
+            h3 #{article.title} - écrit le #{dateFormat(article.created, "dd/mm/yyyy")}
+        .panel-body
+            p #{article.teaser}
+            hr
+            p #{article.content}
+            hr
+            if article.published
+                p
+                    span.label.label-success Publié
+            else
+                p
+                    span.label.label-default Non publié

@@ -10,7 +10,9 @@ block content
      each article in articles
        tr
          td
-           a(href="/admin/blog/articles/update/#{article.id}")= article.title
-         td= article.created.toISOString()
+           a(href="/admin/blog/articles/#{article.id}")= article.title
+         td= dateFormat(article.created, "dd/mm/yyyy")
          td
-           a.btn.btn-default.btn-sm(href="/admin/blog/articles/delete/#{article.id}") Supprimer
+           .btn-group
+             a.btn.btn-info.btn-sm(href="/admin/blog/articles/update/#{article.id}") Editer 
+             a.btn.btn-default.btn-sm(href="/admin/blog/articles/delete/#{article.id}") Supprimer

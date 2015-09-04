@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var basicAuth = require('basic-auth-connect');
 var morgan = require('morgan');
 mongoose = require('mongoose');
+dateFormat = require('dateformat');
 
 // Create application
 app = express();

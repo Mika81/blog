@@ -1,11 +1,15 @@
 doctype html
-html(lang='fr')
+html(lang="fr")
   head
-    title Mon site
-    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/vendor/bootstrap/css/bootstrap-theme.min.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
-    script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
+    title Blogger
+    link(href="/vendor/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
+    link(href="/vendor/bootstrap/dist/css/bootstrap-theme.css", rel="stylesheet")
+    link(href="/admin/css/main.css", rel="stylesheet")
   body
-    div.container
-      block content
+    include nav
+    .container
+      .row
+        .col-md-12
+          block content
+    script(src="/vendor/jquery/dist/jquery.js")
+    script(src="/vendor/bootstrap/dist/js/bootstrap.js")
