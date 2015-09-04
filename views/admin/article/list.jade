@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1 Liste des articles
+  table.table
+    tr
+      th Title
+      th Date
+      th Action
+     each article in articles
+       tr
+         td
+           a(href="/admin/blog/articles/update/#{article.id}")= article.title
+         td= article.created.toISOString()
+         td
+           a.btn.btn-default.btn-sm(href="/admin/blog/articles/delete/#{article.id}") Supprimer

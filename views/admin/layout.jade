@@ -1,0 +1,32 @@
+mixin panel(title)
+  .panel.panel-primary
+    .panel-heading
+      h3= title
+    .panel-body
+      if block
+        block
+      else
+        p lorem ipsum...
+
+doctype html
+html(lang="fr")
+  head
+    title Blogger
+    link(href="/vendor/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
+    link(href="/vendor/bootstrap/dist/css/bootstrap-theme.css", rel="stylesheet")
+    link(href="/admin/css/main.css", rel="stylesheet")
+  body
+    include nav
+    .container
+      .row
+        .col-md-8
+          block content
+        .col-md-4
+          +panel("Categories")
+            p NodeJS
+          +panel("Tags")
+            p Javascript, NodeJS, ...
+          +panel("Categories")
+            p NodeJS
+    script(src="/vendor/jquery/dist/jquery.js")
+    script(src="/vendor/bootstrap/dist/js/bootstrap.js")

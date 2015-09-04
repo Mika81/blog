@@ -1,7 +1,4 @@
-/*
- * routes/articles.js
- * On y associe les fonctions aux routes
- */
+// blog/routes/articles.js
 
 var articles = require('../controllers/articles');
 
@@ -10,9 +7,16 @@ app.get('/blog', articles.findAll);
 app.get('/blog/articles/:id', articles.findOne);
 
 // Espace sécurisé
-// Préfixé par admin == /admin/blog/
+// Préfixé par admin == /admin/blog
 admin.get('/blog', articles.findAll);
-admin.get('/blog/articles/add', articles.add);
+
+admin.route('/blog/articles/add')
+     .get(articles.add)
+     .post(articles.add);
+
 admin.get('/blog/articles/:id', articles.findOne);
-admin.post('/blog/articles/update/:id', articles.update);
+admin.route('/blog/articles/update/:id')
+     .get(articles.update)
+     .post(articles.update);
+
 admin.get('/blog/articles/delete/:id', articles.delete);

@@ -1,11 +1,11 @@
 /**
- * server.js 
  * Blog Application
  */
 
 // Inclusion
 path = require('path');
 var express = require('express');
+var bodyParser = require('body-parser');
 var basicAuth = require('basic-auth-connect');
 var morgan = require('morgan');
 mongoose = require('mongoose');
@@ -17,11 +17,14 @@ admin = express();
 
 // Settings
 mongoose.connect(config.db.default.driver);
-
 app.use(morgan('combined'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', config.app.view.engine);
 app.locals.pretty = config.app.view.pretty;
+admin.locals.pretty = true;
+
+// Body Parser
+admin.use(bodyParser.urlencoded({ extended: false }))
 
 // Authentication
 admin.use(basicAuth('admin', '0000'));
@@ -36,5 +39,5 @@ require(path.join(__dirname, 'routes'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/admin', admin);
 
-// Running
+// Running...
 app.listen(config.server.http_port);

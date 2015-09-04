@@ -1,6 +1,4 @@
-/*
- * models/articles.js
- */
+// blog/models/articles.js
 
 var articles = require('../schemas/articles');
 

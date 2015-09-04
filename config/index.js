@@ -1,7 +1,3 @@
-/*
- * config/index.js
-*/
-
 var config = null;
 
 function loadConf() {

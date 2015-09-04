@@ -1,6 +1,4 @@
-/*
- * schemas/article.js
- */
+// blog/schemas/article.js
 
 // Article
 exports.schema = new mongoose.Schema({
